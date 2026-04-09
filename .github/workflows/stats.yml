@@ -1,0 +1,32 @@
+name: Update ASCII Stats
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch: #manually button
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: install & Run
+        run: |
+          bun i
+          bun start
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: commit & push
+        run: |
+          git config --local user.email "contact@aadnanmt.web.id"
+          git config --local user.name "aadnanmt"
+          git add README.md
+          git commit -m "docs: update stats [skip ci]" || exit 0
+          git push
