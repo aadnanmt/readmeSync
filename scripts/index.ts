@@ -7,9 +7,7 @@ import { makeBar, renderSection, buildReadme } from "./lib/render";
 const README_PATH = process.argv[2] || path.join(process.cwd(), "README.md");
 
 async function main() {
-  // fetch query
-  const data = await fetchData(QUERY);
-
+  
   // Process languages
   const sortedLangs = parseLanguage(data);
   const totalSize = sortedLangs.reduce((acc, [, size]) => acc + size, 0);
