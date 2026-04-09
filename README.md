@@ -18,6 +18,6 @@ Sun   [██████░░░░] 6 commits
 Mon   [█████████████] 13 commits
 Tue   [███████░░░] 7 commits
 Wed   [█████░░░░░] 5 commits
-Thu   [██████████] 10 commits
+Thu   [█████████████] 13 commits
 -------------------------
 ```

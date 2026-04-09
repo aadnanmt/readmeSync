@@ -26,16 +26,35 @@ async function main() {
     return `${dayName.padEnd(5)} ${bar} ${day.contributionCount} commits`;
   });
 
-  // Final Assembly
+  // final assembly
   const statsOutput = renderSection("languages", langLines);
   const commitOutput = renderSection("commit", commitLines);
   const fullStats = `\`\`\`text\n${statsOutput}\n\n${commitOutput}\n\`\`\``;
 
-  // Inject
-  const readme = readFileSync(README_PATH, "utf8");
-  const newReadme = readme.replace(/[\s\S]*/, `\n${fullStats}\n`);
-  
-  writeFileSync(README_PATH, newReadme);
+  // inject logic new
+  const readme = readFileSync(README_PATH, "utf-8");
+
+  // tag on README.md
+  const START_TAG = "";
+  const END_TAG = "";
+
+  // regex tag
+  const regex = new RegExp(`${START_TAG}[\\s\\S]*${END_TAG}`);
+
+  // safety check
+  if (!readme.includes(START_TAG) || !readme.includes(END_TAG)) {
+    console.error("error: tag notfound on README!");
+    console.log("check repo public");
+    process.exit(1); 
+  }
+
+  // inject tag on README.md target
+  const updatedReadme = readme.replace(
+    regex,
+    `${START_TAG}\n${fullStats}\n${END_TAG}`
+  );
+
+  writeFileSync(README_PATH, updatedReadme);
   console.log("stats updated succes!");
 }
 
