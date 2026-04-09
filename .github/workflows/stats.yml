@@ -1,32 +1,37 @@
-name: Update ASCII Stats
+name: Remote README Sync
 on:
   schedule:
     - cron: "0 */12 * * *"
-  workflow_dispatch: #manually button
+  workflow_dispatch:
 
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v4
+      - name: checkout private build
+        uses: actions/checkout@v4
+
+      - name: checkout public profile
+        uses: actions/checkout@v4
+        with:
+          repository: aadnanmt/aadnanmt
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: public-repo
 
       - uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: latest
 
-      - name: install & Run
+      - name: install & generate
         run: |
-          bun i
-          bun start
+          bun install
+          bun run scripts/index.ts ./public-repo/README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: commit & push
+      - name: push to public repo
+        working-directory: ./public-repo
         run: |
           git config --local user.email "contact@aadnanmt.web.id"
           git config --local user.name "aadnanmt"
           git add README.md
-          git commit -m "docs: update stats [skip ci]" || exit 0
-          git push
+          git commit -m "docs: sync automated stats [skip ci]" || exit 0
+          git push origin main
