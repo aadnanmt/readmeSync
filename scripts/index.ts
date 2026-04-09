@@ -34,7 +34,7 @@ async function generateStats() {
   const totalSize = Object.values(langMap).reduce((a, b) => a + b, 0);
   const sortedLangs = Object.entries(langMap)
     .sort(([, a], [, b]) => b - a)
-    .slice(0, 5);
+    .slice(0, 8);
 
   // Ascii bar render
   const BAR_WIDTH = 20;
