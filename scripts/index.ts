@@ -4,7 +4,6 @@ import { fetchData } from "./lib/github";
 import { parseLanguage, parseCommit } from "./lib/parser";
 import { makeBar, renderSection, buildReadme } from "./lib/render";
 
-const QUERY = readFileSync(path.join(process.cwd(), "scripts/query.graphql"), "utf8");
 const README_PATH = process.argv[2] || path.join(process.cwd(), "README.md");
 
 async function main() {
