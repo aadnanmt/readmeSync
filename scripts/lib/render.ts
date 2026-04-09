@@ -38,8 +38,6 @@ export function buildReadme(statsOutput: string, commitOutput: string): string {
 ${statsOutput}
 
 ${commitOutput}
-
-[!] this profile update automatically via custom bun and ts script on my private repo.
 \`\`\`
 
 ---
@@ -54,6 +52,8 @@ ${commitOutput}
 
 ---
 **Connect:**
-[X/Twitter](https://x.com/aadnanmt) / [Instagram](https://instagram.com/aadnanmt) / [Telegram](https://t.me/aadnanmtech) / [Email](mailto:dev@nanoo.cloud)
+[X/Twitter](https://x.com/aadnanmt) / [Instagram](https://instagram.com/aadnanmt) / [Telegram](https://t.me/aadnanmtech) / [Email](mailto:dev@nanoo.cloud)<br>
+
+[!] This profile update automatically via custom bun n ts script.
 `;
 }
