@@ -1,3 +1,4 @@
+// scripts/lib/render.ts
 export function makeBar(count: number, max: number, width: number) {
   const filledLength = Math.round((count / max) * width);
   const filled = "█".repeat(Math.max(0, filledLength));
@@ -13,15 +14,15 @@ export function renderSection(title: string, line: string[]) {
     "-------------------------",
   ].join("\n");
 }
-// new function | Build README
+
 export function buildReadme(statsOutput: string, commitOutput: string): string {
-  
-  return `# Adnan (@aadnanmt)
+  //
+   return `# Adnan (@aadnanmt)
 ## 18yo dev n tech minimalist
 
 > **Current Mission**: Building high-performance edge infrastructure at \`nanoo-labs\`.
 
-### Technical Environment now
+### Tech environment now
 - **Frontend** — TS/JS (Astro), HTML, CSS (Tailwindcss)
 - **Backend** — TS (Hono) and Python (Fastapi, Flask).
 - **Sql** — Sqlite and Postgresql
@@ -32,7 +33,7 @@ export function buildReadme(statsOutput: string, commitOutput: string): string {
 - **Terminal** — Kitty
 - **Tools** — Git, Wrangler, Vite, Docker, Podman, Bun, Pnpm.
 
-### Dev Activity
+### Dev activity
 \`\`\`text
 ${statsOutput}
 
@@ -41,8 +42,8 @@ ${commitOutput}
 
 ---
 ### Focus now
-- **Principles** — Performance-first. Zero-bloat. Scalable Architecture.
-- **Current Grind** — Internship (PKL) @ UIN Malang - Academic Dept.
+- **Principles** • Performance-first. Zero-bloat. Scalable Architecture.
+- **Current Grind** • Internship (PKL) @ UIN Malang - Academic Dept.
 
 ---
 *Building fast, simple, and scalable apps with out-of-the-box thinking.*

@@ -22,7 +22,7 @@ jobs:
 
       - name: install & generate
         run: |
-          bun install
+          bun i
           bun run scripts/index.ts ./public-repo/README.md
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -33,5 +33,5 @@ jobs:
           git config --local user.email "contact@aadnanmt.web.id"
           git config --local user.name "aadnanmt"
           git add README.md
-          git commit -m "docs: sync automated stats [skip ci]" || exit 0
+          git commit -m "docs: sync automated README.md [skip ci]" || exit 0
           git push origin main
