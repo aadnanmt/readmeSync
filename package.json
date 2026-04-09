@@ -1,0 +1,8 @@
+{
+  "name": "profile-tester",
+  "type": "module",
+  "scripts": {
+    "start": "bun scripts/index.ts"
+  }
+}
+
