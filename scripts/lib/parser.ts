@@ -1,7 +1,7 @@
 export function parseLanguage(data: any) {
   const langMap: Record<string, number> = {};
   
-  data.viewer.repositories.nodes.forEach((repo: any) => {
+  data.user.repositories.nodes.forEach((repo: any) => {
     repo.languages.edges.forEach((edge: any) => {
       langMap[edge.node.name] = (langMap[edge.node.name] || 0) + edge.size;
     });
@@ -13,7 +13,7 @@ export function parseLanguage(data: any) {
 }
 
 export function parseCommit(data: any) {
-  const calendar = data.viewer.contributionsCollection.contributionCalendar;
+  const calendar = data.user.contributionsCollection.contributionCalendar;
   return calendar.weeks
     .flatMap((w: any) => w.contributionDays)
     .slice(-7);
