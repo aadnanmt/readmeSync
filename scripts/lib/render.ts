@@ -38,6 +38,8 @@ export function buildReadme(statsOutput: string, commitOutput: string): string {
 ${statsOutput}
 
 ${commitOutput}
+
+[!] this profile update automatically via custom bun and ts script on my private repo.
 \`\`\`
 
 ---
