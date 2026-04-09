@@ -3,6 +3,8 @@
   "type": "module",
   "scripts": {
     "start": "bun scripts/index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^25.5.2"
   }
 }
-
