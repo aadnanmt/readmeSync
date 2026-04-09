@@ -52,6 +52,9 @@ async function generateStats() {
     "-------------------------",
     `Status      : Internship`, 
     `Uptime      : 18 years `,
+
+    ---
+    ​[!] This profile updates automatically via custom Bun script.
   ].join("\n")
 
   // Inject README.md
