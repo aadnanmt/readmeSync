@@ -1,6 +1,6 @@
 query {
   viewer {
-    repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
+    repositories(first: 100, ownerAffiliations: OWNER, isFork: true, privacy: PUBLIC) {
       nodes {
         languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
           edges {
