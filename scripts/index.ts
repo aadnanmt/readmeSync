@@ -13,7 +13,8 @@ async function generateStats() {
   const response = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${GH_TOKEN}`,
+      // auth 
+      "Authorization": `Bearer ${process.env.GH_TOKEN}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query: QUERY }),
@@ -50,7 +51,7 @@ async function generateStats() {
     "-------------------------",
     ...asciiLines,
     "-------------------------",
-    `Status      : Internship`, 
+    `Status      : Internship`,
     `Uptime      : 18 years `,
 
     `​[!] This profile updates automatically via custom Bun script`,
