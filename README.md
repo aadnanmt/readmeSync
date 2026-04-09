@@ -1,19 +1,13 @@
-# Adnan (@aadnanmt)
-## 18yo dev n tech minimalist
 
-> **Current Mission**: Building high-performance edge infrastructure at `nanoo-labs`.
-
-### Technical Environment
-**Stack** — TS/JS (Hono, Bun, Vite, Astro), Python (FastAPI), SQLite, Redis  
-**System** — Arch Linux (btw), Hyprland, Wayland, Alpine, Termux  
-**Editor** — Neovim, VS Code, Sublime  
-**Shell** — Fish Shell  
-**Tools** — Git, Wrangler, Docker, Podman
-  
 ```text
 $ adnan-stats --languages
 -------------------------
-(test)
+JavaScript   ███████▒▒▒▒▒▒▒▒▒▒▒▒▒ 33.1%
+CSS          ████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 21.2%
+HTML         ███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 13.9%
+Stylus       ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 9.1%
+EJS          █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 6.7%
 -------------------------
-Status      : internship
-Uptime      : 18 years
+Status      : Internship
+Uptime      : 18 years 
+```
