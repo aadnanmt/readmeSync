@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: aadnanmt/aadnanmt
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           path: public-repo
 
       - uses: oven-sh/setup-bun@v1
@@ -25,7 +25,7 @@ jobs:
           bun install
           bun run scripts/index.ts ./public-repo/README.md
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: push to public repo
         working-directory: ./public-repo

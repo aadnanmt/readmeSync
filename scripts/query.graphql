@@ -1,13 +1,21 @@
 query {
   viewer {
-    repositories(first: 100, ownerAffiliations: OWNER, isFork: true, privacy: PUBLIC) {
+    repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
       nodes {
-        languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+        languages(first: 20, orderBy: {field: SIZE, direction: DESC}) {
           edges {
             size
-            node {
-              name
-            }
+            node { name }
+          }
+        }
+      }
+    }
+    contributionsCollection {
+      contributionCalendar {
+        weeks {
+          contributionDays {
+            contributionCount
+            date
           }
         }
       }

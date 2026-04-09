@@ -1,6 +1,6 @@
 export async function fetchData(query: string) {
-  const token = process.env.GITHUB_TOKEN;
-  if (!token) throw new Error("GITHUB_TOKEN is missing. Check again,");
+  const token = process.env.GH_TOKEN;
+  if (!token) throw new Error("GH_TOKEN is missing. Check again,");
 
   const response = await fetch("https://api.github.com/graphql", {
     method: "POST",
