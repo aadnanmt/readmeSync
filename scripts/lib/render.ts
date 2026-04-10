@@ -27,10 +27,10 @@ export function buildReadme(statsOutput: string, commitOutput: string): string {
 - **Backend** — TS (Hono) and Python (Fastapi, Flask).
 - **Sql** — Sqlite and Postgresql
 - **Nosql** — Redis
-- **System** — Arch Linux, Hyprland, I3wm, Alpine, Debian minimal, Termux, Tmux. 
-- **Editor** — Sublime (fav), Neovim, VS Code. 
-- **Shell** — Fish Shell
-- **Terminal** — Kitty
+- **OS** — Arch linux (main), Debian minimal and Alpine (Container/Server)
+- **Window Manager — Hyprland and I3wm
+- **Editor** — Sublime (fav), "Neovim", VS Code. 
+- **Shell and Terminal** — Fish Shell and Kitty
 - **Tools** — Git, Wrangler, Vite, Docker, Podman, Bun, Pnpm.
 
 ### Dev activity
@@ -54,6 +54,6 @@ ${commitOutput}
 **Connect:**
 [X/Twitter](https://x.com/aadnanmt) / [Instagram](https://instagram.com/aadnanmt) / [Telegram](https://t.me/aadnanmtech) / [Email](mailto:dev@nanoo.cloud)<br>
 
-[!] This profile update automatically via custom bun n ts script.
+*[!] Automatically updated every 12 hours via custom Bun + TS script, thanks for reading*
 `;
 }
