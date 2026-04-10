@@ -28,7 +28,7 @@ export function buildReadme(statsOutput: string, commitOutput: string): string {
 - **Sql** — Sqlite and Postgresql
 - **Nosql** — Redis
 - **OS** — Arch linux (main), Debian minimal and Alpine (Container/Server)
-- **Window Manager — Hyprland and I3wm
+- **Window Manager** — Hyprland and I3wm
 - **Editor** — Sublime (fav), "Neovim", VS Code. 
 - **Shell and Terminal** — Fish Shell and Kitty
 - **Tools** — Git, Wrangler, Vite, Docker, Podman, Bun, Pnpm.
