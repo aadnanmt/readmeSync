@@ -27,11 +27,11 @@ export function buildReadme(statsOutput: string, commitOutput: string): string {
 - **Backend** — TS (Hono) and Python (Fastapi, Flask).
 - **Sql** — Sqlite and Postgresql
 - **Nosql** — Redis
-- **OS** — Arch linux (main), Debian minimal and Alpine (Container/Server)
+- **OS** — Arch linux (Daily Driver)
 - **Window Manager** — Hyprland and I3wm
-- **Editor** — Sublime (fav), "Neovim", VS Code. 
+- **Editor** — Neovim (Primary) and VS Code (Secondary)
 - **Shell and Terminal** — Fish Shell and Kitty
-- **Tools** — Git, Wrangler, Vite, Docker, Podman, Bun, Pnpm.
+- **Tools** — Git, Wrangler, Vite, Podman, Bun, Pnpm.
 
 ### Dev activity
 \`\`\`text
