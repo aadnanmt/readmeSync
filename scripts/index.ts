@@ -11,7 +11,7 @@ const README_PATH = process.argv[2] || path.join(process.cwd(), "README.md");
 async function main() {
   // add console log
   console.log("🚀 starting data fetch...");
-  
+
   // fetch
   const data = await fetchData(GITHUB_QUERY);
 
@@ -30,7 +30,9 @@ async function main() {
   // --- Process Commits ---
   const commitData = parseCommit(data);
   const commitLines = commitData.map((day: any) => {
-    const dayName = new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(new Date(day.date));
+    const dayName = new Intl.DateTimeFormat("en-US", {
+      weekday: "short",
+    }).format(new Date(day.date));
     const bar = makeBar(day.contributionCount, 10, 10);
     return `${dayName.padEnd(5)} ${bar} ${day.contributionCount} commits`;
   });
@@ -42,7 +44,7 @@ async function main() {
   // --- Build Readme ---
   const finalReadme = buildReadme(statsOutput, commitOutput);
 
-  // overwrite file 
+  // overwrite file
   writeFileSync(README_PATH, finalReadme);
   console.log(" Nice: README.md generated with Headless Architectur!");
 }

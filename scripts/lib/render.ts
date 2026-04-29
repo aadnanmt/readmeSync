@@ -17,7 +17,7 @@ export function renderSection(title: string, line: string[]) {
 
 export function buildReadme(statsOutput: string, commitOutput: string): string {
   //
-   return `# Adnan (@aadnanmt)
+  return `# Adnan (@aadnanmt)
 ## 18yo dev n tech minimalist
 
 > **Current Mission**: Building high-performance edge infrastructure at \`nanoo-labs\`.
