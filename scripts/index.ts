@@ -1,18 +1,23 @@
 // scripts/index.ts
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fetchData } from "./lib/github";
 import { parseLanguage, parseCommit } from "./lib/parser";
 import { makeBar, renderSection, buildReadme } from "./lib/render";
 import { GITHUB_QUERY } from "./lib/query";
 
+// --- README.template.md ---
 const README_PATH = process.argv[2] || path.join(process.cwd(), "README.md");
+const TEMPLATE_PATH = path.join(process.cwd(), "README.template.md");
 
 async function main() {
-  // add console log
-  console.log("🚀 starting data fetch...");
+  // --- Add console log ---
+  console.log("🚀 Starting data fetching...");
 
-  // fetch
+  // --- Read Template ---
+  const template = readFileSync(TEMPLATE_PATH, "utf-8");
+
+  // --- Fetch data from github query ---
   const data = await fetchData(GITHUB_QUERY);
 
   if (!data) {
@@ -30,6 +35,7 @@ async function main() {
   // --- Process Commits ---
   const commitData = parseCommit(data);
   const commitLines = commitData.map((day: any) => {
+    // Date time use en-US
     const dayName = new Intl.DateTimeFormat("en-US", {
       weekday: "short",
     }).format(new Date(day.date));
@@ -37,16 +43,16 @@ async function main() {
     return `${dayName.padEnd(5)} ${bar} ${day.contributionCount} commits`;
   });
 
-  // --- assembly ---
+  // --- Assembly ---
   const statsOutput = renderSection("languages", langLines);
   const commitOutput = renderSection("commit", commitLines);
 
-  // --- Build Readme ---
-  const finalReadme = buildReadme(statsOutput, commitOutput);
+  // --- Build README ---
+  const finalReadme = buildReadme(template, statsOutput, commitOutput);
 
-  // overwrite file
+  // Overwrite file
   writeFileSync(README_PATH, finalReadme);
-  console.log(" Nice: README.md generated with Headless Architectur!");
+  console.log(" Nice: README.md generated!");
 }
 
 main().catch(console.error);
