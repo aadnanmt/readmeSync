@@ -1,7 +1,7 @@
-name: Remote README Sync
+name: Remote readmeSync
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 5,17 * * *"
   workflow_dispatch:
 
 jobs:
@@ -27,11 +27,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
+      - name: format code
+        run: bun run format:readme
+
       - name: push to public repo
         working-directory: ./public-repo
         run: |
           git config --local user.email "contact@aadnanmt.web.id"
-          git config --local user.name "aadnanmt"
+          git config --local user.name "Adnan Slamet Wibowo"
           git add README.md
           git commit -m "docs: sync automated README.md [skip ci]" || exit 0
           git push origin main
