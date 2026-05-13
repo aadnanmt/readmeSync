@@ -2,7 +2,7 @@
 
 ## 18yo dev n tech minimalist
 
-> Current Mission: Building high-performance edge ecosystems at nanoolabs.
+> Current Mission: Building high-performance edge ecosystems at `nanoolabs`.
 
 ### Tech environment now
 
@@ -41,4 +41,4 @@ _Building fast, simple, and scalable apps with out-of-the-box thinking._
 **Connect:**
 [X/Twitter](https://x.com/aadnanmt) / [Instagram](https://instagram.com/aadnanmt) / [Telegram](https://t.me/aadnanmtech) / [Email](mailto:adnan@nanoolabs.dev)<br>
 
-**[!] This profile update automatically via custom bun and typescript.**
+*[!] This profile is automatically updated every 12 hours (05:00 & 17:00 UTC) via a custom Bun + TypeScript automation script. No commit farming~just keeping the stats real.*
