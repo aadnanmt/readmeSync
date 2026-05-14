@@ -4,7 +4,8 @@
   "scripts": {
     "start": "bun scripts/index.ts",
     "format": "prettier . --write",
-    "format:readme": "prettier --write ./public-repo/README.md"
+    "format:readme": "prettier --write ./public-repo/README.md",
+    "setup": "cp .env.example .env || copy .env.example .env"
   },
   "dependencies": {
     "@types/node": "^25.5.2",
