@@ -1,8 +1,10 @@
-export function parseLanguage(data: any) {
+import { GitHubUser, ContributionWeek } from "../types";
+
+export function parseLanguage(data: GitHubUser) {
   const langMap: Record<string, number> = {};
 
-  data.user.repositories.nodes.forEach((repo: any) => {
-    repo.languages.edges.forEach((edge: any) => {
+  data.repositories.nodes.forEach((repo) => {
+    repo.languages.edges.forEach((edge) => {
       langMap[edge.node.name] = (langMap[edge.node.name] || 0) + edge.size;
     });
   });
@@ -12,7 +14,9 @@ export function parseLanguage(data: any) {
     .slice(0, 8);
 }
 
-export function parseCommit(data: any) {
-  const calendar = data.user.contributionsCollection.contributionCalendar;
-  return calendar.weeks.flatMap((w: any) => w.contributionDays).slice(-7);
+export function parseCommit(data: GitHubUser) {
+  const calendar = data.contributionsCollection.contributionCalendar;
+  return calendar.weeks
+    .flatMap((w: ContributionWeek) => w.contributionDays)
+    .slice(-7);
 }
