@@ -28,7 +28,7 @@ async function main() {
   }
 
   // --- Process Languages ---
-  const sortedLangs = parseLanguage(data.user); // Pass data.user
+  const sortedLangs = parseLanguage(data.viewer); // Pass data.viewer
   const totalSize = sortedLangs.reduce((acc, [, size]) => acc + size, 0);
   const langLines = sortedLangs.map(([name, size]) => {
     const bar = makeBar(size, totalSize, 15);
@@ -36,9 +36,9 @@ async function main() {
   });
 
   // --- Process Commits ---
-  const calendar = data.user.contributionsCollection.contributionCalendar;
+  const calendar = data.viewer.contributionsCollection.contributionCalendar;
   const totalContributions = calendar.totalContributions;
-  const commitData = parseCommit(data.user);
+  const commitData = parseCommit(data.viewer);
   const maxCommits = Math.max(...commitData.map((d) => d.contributionCount), 1);
   const commitLines = commitData.map((day) => {
     // Date time use en-US
@@ -51,10 +51,11 @@ async function main() {
 
   // --- Assembly ---
   const statsOutput = renderSection("languages", langLines);
-  const commitOutput = renderSection(
-    `commit (Total: ${totalContributions})`,
-    commitLines,
-  );
+  const commitOutput = renderSection("commit", [
+    ...commitLines,
+    "", // spacer
+    `Total: ${totalContributions.toLocaleString()} commits in the last year`,
+  ]);
 
   // --- Build README ---
   const finalReadme = buildReadme(template, statsOutput, commitOutput);

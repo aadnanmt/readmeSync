@@ -17,6 +17,9 @@ export interface Languages {
 
 // Repository types
 export interface RepositoryNode {
+  owner: {
+    login: string;
+  };
   languages: Languages;
 }
 
@@ -51,7 +54,9 @@ export interface GitHubUser {
 
 // Full GraphQL Response type
 export interface GitHubGqlResponse {
-  user: GitHubUser; // if querying user(login: "...")
-  // or if using viewer:
-  // viewer: GitHubUser;
+  // the authenticated user (used with the 'viewer' query)
+  viewer?: GitHubUser;
+
+  // a specific user (used with the 'user(login: "...")' query)
+  user?: GitHubUser;
 }
