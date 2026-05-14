@@ -1,10 +1,13 @@
 // scripts/index.ts
+
+import "dotenv/config";
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fetchData } from "./lib/github";
 import { parseLanguage, parseCommit } from "./lib/parser";
 import { makeBar, renderSection, buildReadme } from "./lib/render";
 import { GITHUB_QUERY } from "./lib/query";
+import { GitHubGqlResponse } from "./types";
 
 // --- README.template.md ---
 const README_PATH = process.argv[2] || path.join(process.cwd(), "README.md");
@@ -25,7 +28,7 @@ async function main() {
   }
 
   // --- Process Languages ---
-  const sortedLangs = parseLanguage(data);
+  const sortedLangs = parseLanguage(data.user); // Pass data.user
   const totalSize = sortedLangs.reduce((acc, [, size]) => acc + size, 0);
   const langLines = sortedLangs.map(([name, size]) => {
     const bar = makeBar(size, totalSize, 15);
@@ -33,19 +36,25 @@ async function main() {
   });
 
   // --- Process Commits ---
-  const commitData = parseCommit(data);
-  const commitLines = commitData.map((day: any) => {
+  const calendar = data.user.contributionsCollection.contributionCalendar;
+  const totalContributions = calendar.totalContributions;
+  const commitData = parseCommit(data.user);
+  const maxCommits = Math.max(...commitData.map((d) => d.contributionCount), 1);
+  const commitLines = commitData.map((day) => {
     // Date time use en-US
     const dayName = new Intl.DateTimeFormat("en-US", {
       weekday: "short",
     }).format(new Date(day.date));
-    const bar = makeBar(day.contributionCount, 10, 10);
+    const bar = makeBar(day.contributionCount, maxCommits, 10);
     return `${dayName.padEnd(5)} ${bar} ${day.contributionCount} commits`;
   });
 
   // --- Assembly ---
   const statsOutput = renderSection("languages", langLines);
-  const commitOutput = renderSection("commit", commitLines);
+  const commitOutput = renderSection(
+    `commit (Total: ${totalContributions})`,
+    commitLines,
+  );
 
   // --- Build README ---
   const finalReadme = buildReadme(template, statsOutput, commitOutput);
