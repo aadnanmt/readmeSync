@@ -24,6 +24,7 @@
 ---
 
 ### Dev activity
+
 ```
 {{languages}}
 
@@ -39,6 +40,7 @@
 _Building fast, simple, and scalable apps with out-of-the-box thinking._
 
 ---
+
 [ Portfolio ](https://me.nanoolabs.dev) / [ Git | Laboratory ](https://github.com/nanoolabs) /
 [ Website Nanoo Labs](https://nanoolabs.dev) / [ Website Nanoo Biz](https://nanoo.biz.id)
 
