@@ -1,18 +1,15 @@
 # readmeSync
 
-Automated GitHub Profile README sync. Built with **Bun** and **TypeScript**, leveraging **GitHub GraphQL API** for high-performance data fetching and headless templating.
+A minimalist tool to synchronize your GitHub Profile README. Built with **Bun** and **TypeScript**, it uses the **GitHub GraphQL API** for fast data fetching and headless templating.
 
 ## Architecture
-
-This project uses a **Headless Templating** approach:
-
-1. **Source**: `README.template.md` (Pure Markdown with placeholders).
+This project follows a **Headless Templating** approach:
+1. **Source**: `README.template.md` (Markdown with placeholders).
 2. **Logic**: Bun + TS scripts fetch data from GitHub GraphQL.
-3. **Renderer**: Injects processed stats into placeholders (`{{languages}}`, `{{commit}}`).
-4. **Deploy**: GitHub Actions automates the sync every 12 hours to the public profile repository.
+3. **Renderer**: Injects stats into placeholders like `{{languages}}` and `{{commit}}`.
+4. **Deploy**: GitHub Actions automates the sync every 12 hours to your public profile repository.
 
 ## Tech Stack
-
 - **Runtime**: [Bun](https://bun.sh)
 - **Language**: TypeScript
 - **API**: GitHub GraphQL API v4
@@ -21,19 +18,31 @@ This project uses a **Headless Templating** approach:
 
 ## Setup & Usage
 
-1. Clone the repository.
-2. Install dependencies: `bun install`
-3. Set up `GH_TOKEN` in your environment.
-4. Run the generator:
+
+1. Clone this repository.
+2. Install dependencies:
+   ```bash
+   bun install
+   ```
+3. Initialize the environment file:
+   ```bash
+   bun run setup
+   ```
+4. Set up your `GH_TOKEN` in the `.env` file (see the **Authentication** section below).
+5. Run the generator:
    ```bash
    bun start <path-to-target-readme>
    ```
 
-## Automation
+## Authentication
+This project requires a GitHub Personal Access Token (PAT). You can use either:
 
-Updates occur twice daily at **05:00 & 17:00 UTC**.
-See `.github/workflows/stats.yml` for the CI/CD pipeline details.
+- **Fine-grained PAT**: (Recommended) Requires `Contents (Read/Write)`, `Workflows (Read/Write)`, and `Profile (Read-only)` permissions.
+- **Classic PAT**: (Easier for multiple organizations) Requires `repo`, `workflow`, and `read:user` scopes.
+
+## Automation
+Updates happen twice a day at **05:00 & 17:00 UTC**.
+Check `.github/workflows/stats.yml` for the CI/CD pipeline details.
 
 ---
-
-_Zero-bloat. Performance-first. Scalable._
+*Zero-bloat. Performance-first. Scalable.*
