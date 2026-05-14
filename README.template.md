@@ -4,6 +4,8 @@
 
 > Current Mission: Building high-performance edge ecosystems at `nanoolabs`.
 
+---
+
 ### Tech environment now
 
 - **Frontend**  
@@ -19,24 +21,25 @@
 
 > _Focus: Performance, zero-bloat, and minimalist architecture._
 
-### Dev activity
+---
 
+### Dev activity
+```
 {{languages}}
 
 {{commit}}
+```
 
 ---
 
 ### Focus now
 
-- **Principles** • Performance-first. Zero-bloat. Scalable Architecture.
 - **Current Grind** • Internship (PKL) [UIN Malang - Campus 1.](https://uin-malang.ac.id)
-
----
 
 _Building fast, simple, and scalable apps with out-of-the-box thinking._
 
-[ Portfolio ](https://me.nanoolabs.dev) / [ Git | Laboratory ](https://github.com/nanoolabs)
+---
+[ Portfolio ](https://me.nanoolabs.dev) / [ Git | Laboratory ](https://github.com/nanoolabs) /
 [ Website Nanoo Labs](https://nanoolabs.dev) / [ Website Nanoo Biz](https://nanoo.biz.id)
 
 ---
