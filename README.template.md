@@ -6,15 +6,18 @@
 
 ### Tech environment now
 
-- **Frontend** — TS/JS (Astro), HTML, CSS (Tailwindcss).
-- **Backend** — TS (Hono) and Python (Fastapi, Flask).
-- **Sql** — Sqlite and Postgresql.
-- **Nosql** — Redis.
-- **OS** — Arch linux (Daily Driver).
-- **Window Manager** — Hyprland.
-- **Editor** — Neovim (Primary) and VS Code (Secondary).
-- **Shell and Terminal** — Fish Shell (Daily Driver), Bash (Portability) and Kitty.
-- **Dominan Tools** — Git, Wrangler, Vite, Podman, Bun, Pnpm.
+- **Frontend**  
+  `TS/JS (Astro)` `HTML` `CSS (Tailwind)`
+- **Backend**
+  `TS (Hono)` `Python (FastAPI/Flask)`
+- **Databases**
+  `PostgreSQL` `SQLite` `Redis`
+- **System**
+  `Arch (Hyprland)` `Fish/Bash` `Kitty`
+- **Tooling**
+  `Neovim` `Git` `Podman` `Bun/Pnpm` `Wrangler`
+
+> _Focus: Performance, zero-bloat, and minimalist architecture._
 
 ### Dev activity
 
@@ -41,4 +44,4 @@ _Building fast, simple, and scalable apps with out-of-the-box thinking._
 **Connect:**
 [X/Twitter](https://x.com/aadnanmt) / [Instagram](https://instagram.com/aadnanmt) / [Telegram](https://t.me/aadnanmtech) / [Email](mailto:adnan@nanoolabs.dev)<br>
 
-*[!] This profile is automatically updated every 12 hours (05:00 & 17:00 UTC) via a custom Bun + TypeScript automation script. No commit farming~just keeping the stats real.*
+_[!] This profile is automatically updated every 12 hours (05:00 & 17:00 UTC) via a custom Bun + TypeScript automation script. No commit farming~just keeping the stats real._
