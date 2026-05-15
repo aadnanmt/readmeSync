@@ -57,12 +57,27 @@ async function main() {
     `Total: ${totalContributions.toLocaleString()} commits in the last year`,
   ]);
 
-  // --- Build README ---
+  // --- Build Readme ---
   const finalReadme = buildReadme(template, statsOutput, commitOutput);
 
-  // Overwrite file
+  // README.md
   writeFileSync(README_PATH, finalReadme);
-  console.log(" Nice: README.md generated!");
+  console.log("README.md generated with Headless Architecture!");
+
+  // Json stats
+  const JsonOutput = process.argv[3];
+  if (JsonOutput) {
+    const portfolioData = {
+      languages: sortedLangs.map(([name, size]) => ({
+        name,
+        percentage: ((size / totalSize) * 100).toFixed(1),
+      })),
+      totalCommits: totalContributions,
+      updatedAt: new Date().toISOString(),
+    };
+    writeFileSync(JsonOutput, JSON.stringify(portfolioData, null, 2));
+    console.log(`Data JSON export to: ${JsonOutput}`);
+  }
 }
 
 main().catch(console.error);
