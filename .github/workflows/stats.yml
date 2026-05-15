@@ -23,7 +23,7 @@ jobs:
       - name: install & generate
         run: |
           bun i
-          bun run scripts/index.ts ./public-repo/README.md
+          bun run scripts/index.ts ./public-repo/README.md ./stats.json
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
@@ -37,4 +37,12 @@ jobs:
           git config --local user.name "Adnan Slamet Wibowo"
           git add README.md
           git commit -m "docs: sync automated README.md [skip ci]" || exit 0
+          git push origin main
+
+      - name: push stats to this repo
+        run: |
+          git config --local user.email "contact@aadnanmt.web.id"
+          git config --local user.name "Adnan Slamet Wibowo"
+          git add stats.jso
+          git commit -m "data: update stats.json for portfolio [skip ci]" || exit 0
           git push origin main
