@@ -8,16 +8,11 @@
 
 ### Tech environment now
 
-- **Frontend**  
-  `TS/JS (Astro)` `HTML` `CSS (Tailwind)`
-- **Backend**
-  `TS (Hono)` `Python (FastAPI/Flask)`
-- **Databases**
-  `PostgreSQL` `SQLite` `Redis`
-- **System**
-  `Arch (Hyprland)` `Fish/Bash` `Kitty`
-- **Tooling**
-  `Neovim` `Git` `Podman` `Bun/Pnpm` `Wrangler`
+- **Frontend**  `TS/JS (Astro)` `HTML` `CSS (Tailwind)`
+- **Backend**  `TS (Hono)` `Python (FastAPI/Flask)`
+- **Databases**  `PostgreSQL` `SQLite` `Redis`
+- **System**  `Arch (Hyprland)` `Fish/Bash` `Kitty`
+- **Tooling**  `Neovim` `Git` `Podman` `Bun/Pnpm` `Wrangler`
 
 > _Focus: Performance, zero-bloat, and minimalist architecture._
 
