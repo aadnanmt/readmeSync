@@ -1,47 +1,29 @@
-# Adnan (@aadnanmt)
+# Adnan (@aadnanmt) [⌐■_■]
+## 18yo dev & tech minimalist
 
-## 18yo dev n tech minimalist
+> Building high-performance edge ecosystems at `nanoolabs`.
 
-> Current Mission: Building high-performance edge ecosystems at `nanoolabs`.
+- **Frontend** `TS/JS (Astro)` `HTML` `CSS (Tailwind)`
+- **Backend** `TS (Hono)` `Python (FastAPI/Flask)`
+- **Databases** `PostgreSQL` `SQLite` `Redis`
+<!--- **System** `NixOS (Niri)` `Fish/Bash` `Kitty` migration way -->
+- **System** `Arch (Hyprland)` `Fish/Bash` `Kitty`
+- **Tooling** `Neovim` `Git` `Podman` `Bun/Pnpm` `Wrangler`
 
----
+### Dev activity [ ■_■ ]
 
-### Tech environment now
-
-- **Frontend**  `TS/JS (Astro)` `HTML` `CSS (Tailwind)`
-- **Backend**  `TS (Hono)` `Python (FastAPI/Flask)`
-- **Databases**  `PostgreSQL` `SQLite` `Redis`
-- **System**  `Arch (Hyprland)` `Fish/Bash` `Kitty`
-- **Tooling**  `Neovim` `Git` `Podman` `Bun/Pnpm` `Wrangler`
-
-> _Focus: Performance, zero-bloat, and minimalist architecture._
-
----
-
-### Dev activity
-
-```
+```bash
 {{languages}}
 
 {{commit}}
 ```
 
----
+Principles: Performance, zero-bloat, and scalable architecture.
+Current: Internship (PKL) @[UIN Malang](https://uin-malang.ac.id)
 
-### Focus now
+[Portfolio](https://me.nanoolabs.dev) / [Laboratory](https://github.com/nanoolabs) / [Nanoo Labs](https://nanoolabs.dev) / [Nanoo Biz](https://nanoo.biz.id)
 
-- **Current Grind** • Internship (PKL) [UIN Malang - Campus 1.](https://uin-malang.ac.id)
+### Connect with me [ ▣_▣ ]
+[Twitter](https://x.com/aadnanmt) / [Instagram](https://instagram.com/aadnanmt) / [Telegram](https://t.me/aadnanmtech) / [Email](mailto:adnan@nanoolabs.dev)
 
-_Building fast, simple, and scalable apps with out-of-the-box thinking._
-
----
-
-[ Portfolio ](https://me.nanoolabs.dev) / [ Git | Laboratory ](https://github.com/nanoolabs) /
-[ Website Nanoo Labs](https://nanoolabs.dev) / [ Website Nanoo Biz](https://nanoo.biz.id)
-
----
-
-**Connect:**
-[X/Twitter](https://x.com/aadnanmt) / [Instagram](https://instagram.com/aadnanmt) / [Telegram](https://t.me/aadnanmtech) / [Email](mailto:adnan@nanoolabs.dev)<br>
-
-_[!] This profile is automatically updated every 12 hours (05:00 & 17:00 UTC) via a custom Bun + TypeScript automation script. No commit farming~just keeping the stats real._
+<p align="right"><small>Auto-sync 12h via Bun/TypeScript. No commit farming.</small></p>
