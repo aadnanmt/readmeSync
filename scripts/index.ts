@@ -15,7 +15,7 @@ const TEMPLATE_PATH = path.join(process.cwd(), "README.template.md");
 
 async function main() {
   // --- Add console log ---
-  console.log("🚀 Starting data fetching...");
+  console.log("[ ▱_▱ ] Starting data fetching, wait a moment...");
 
   // --- Read Template ---
   const template = readFileSync(TEMPLATE_PATH, "utf-8");
@@ -24,7 +24,7 @@ async function main() {
   const data = await fetchData(GITHUB_QUERY);
 
   if (!data) {
-    throw new Error("fail: notfound data from GitHub API.");
+    throw new Error("[ ▟_▙ ]  Fail: Notfound data from GitHub API.");
   }
 
   // --- Process Languages ---
@@ -60,13 +60,12 @@ async function main() {
   // --- Build Readme ---
   const finalReadme = buildReadme(template, statsOutput, commitOutput);
 
-  // README.md
-  writeFileSync(README_PATH, finalReadme);
-  console.log("README.md generated with Headless Architecture!");
+writeFileSync(README_PATH, finalReadme);
+  console.log("[ ▰_▰ ] Done, README.md generated with Headless Architecture!");
 
-  // Json stats
-  const JsonOutput = process.argv[3];
-  if (JsonOutput) {
+  // JSON for Portfolio
+  const jsonOutput = process.argv[3];
+  if (jsonOutput) {
     const portfolioData = {
       languages: sortedLangs.map(([name, size]) => ({
         name,
@@ -74,9 +73,15 @@ async function main() {
       })),
       totalCommits: totalContributions,
       updatedAt: new Date().toISOString(),
+      dailyContributions: calendar?.weeks
+        ?.flatMap((week) => week.contributionDays || [])
+        .map((day) => ({
+          date: day.date,
+          count: day.contributionCount,
+        })) || [],
     };
-    writeFileSync(JsonOutput, JSON.stringify(portfolioData, null, 2));
-    console.log(`Data JSON export to: ${JsonOutput}`);
+    writeFileSync(jsonOutput, JSON.stringify(portfolioData, null, 2));
+    console.log(`[ ⌐■_■] Done, data JSON exported to: ${jsonOutput}`);
   }
 }
 

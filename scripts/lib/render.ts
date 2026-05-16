@@ -8,13 +8,13 @@ export function makeBar(count: number, max: number, width: number) {
   return `[${filled}${empty}]`;
 }
 
-// --- Section Render   ---
+// --- Section Render Activity  ---
 export function renderSection(title: string, line: string[]) {
   return [
     `$ aadnanmt-stats --${title.toLowerCase().replace(/\s+/g, "-")}`,
-    "------------------------------",
+    "----------------------------------",
     ...line,
-    "------------------------------",
+    "----------------------------------",
   ].join("\n");
 }
 

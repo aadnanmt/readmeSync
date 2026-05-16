@@ -4,7 +4,7 @@ export async function fetchData(query: string): Promise<GitHubGqlResponse> {
   const token = process.env.GH_TOKEN;
   if (!token)
     throw new Error(
-      "GH_TOKEN is missing. Check again your value GH_TOKEN on .env",
+      "[ ✖_✖ ] Damn, GH_TOKEN is missing. Check again your value GH_TOKEN on your .env",
     );
 
   const response = await fetch("https://api.github.com/graphql", {
@@ -19,7 +19,7 @@ export async function fetchData(query: string): Promise<GitHubGqlResponse> {
   const result = await response.json();
   if (result.errors) {
     console.error(result.errors);
-    throw new Error("Graphql error!");
+    throw new Error("[ ✖_✖ ] Graphql error!");
   }
   return result.data;
 }
