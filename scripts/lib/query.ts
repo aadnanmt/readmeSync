@@ -7,6 +7,7 @@ export const GITHUB_QUERY = `
          ORGANIZATION_MEMBER], isFork: false,  orderBy: {field: PUSHED_AT, direction:
          DESC}) {
         nodes {
+          nameWithOwner
           owner {    
            login
            }
@@ -16,6 +17,20 @@ export const GITHUB_QUERY = `
               node {
                 color
                 name
+              }
+            }
+          }
+          refs(refPrefix: "refs/heads/", first: 1) {
+            nodes {
+              target {
+                ... on Commit {
+                  history(first: 1) {
+                    nodes {
+                      message
+                      committedDate
+                    }
+                  }
+                }
               }
             }
           }
