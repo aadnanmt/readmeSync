@@ -11,7 +11,9 @@
 
 ### Dev activity [ ■_■ ]
 
-```bash
+```text
+{{activity}}
+
 {{languages}}
 
 {{commit}}
@@ -25,4 +27,4 @@ Current: Internship (PKL) @[UIN Malang](https://uin-malang.ac.id)
 ### Connect with me [ ▰_▰ ]
 [Twitter](https://x.com/aadnanmt) / [Instagram](https://instagram.com/aadnanmt) / [Telegram](https://t.me/aadnanmtech) / [Email](mailto:adnan@nanoolabs.dev)
 
-<p align="right"><small>Auto-sync 12h via Bun/TypeScript. No commit farming.</small></p>
+<p align="right"><small>Auto-sync 12h via Bun/TypeScript. No commit farming. You can check this repo[readmeSync](https://github.com/aadnanmt/readmeSync/commits/main/)</small></p>
