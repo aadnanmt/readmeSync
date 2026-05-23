@@ -16,11 +16,32 @@ export interface Languages {
 }
 
 // Repository types
+export interface CommitNode {
+  message: string;
+  committedDate: string;
+}
+
+export interface CommitHistory {
+  nodes: CommitNode[];
+}
+
+export interface RefNode {
+  target: {
+    history: CommitHistory;
+  };
+}
+
+export interface Refs {
+  nodes: RefNode[];
+}
+
 export interface RepositoryNode {
+  nameWithOwner: string;
   owner: {
     login: string;
   };
   languages: Languages;
+  refs?: Refs;
 }
 
 export interface Repositories {
