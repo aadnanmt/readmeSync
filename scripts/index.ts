@@ -1,21 +1,39 @@
 // scripts/index.ts
 
-import "dotenv/config";
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fetchData } from "./lib/github";
-import { parseLanguage, parseCommit } from "./lib/parser";
-import { makeBar, renderSection, buildReadme } from "./lib/render";
+import { parseLanguage, parseCommit, parseActivity } from "./lib/parser";
+import {
+  renderSection,
+  buildReadme,
+  formatLanguages,
+  formatCommits,
+} from "./lib/render";
 import { GITHUB_QUERY } from "./lib/query";
-import { GitHubGqlResponse } from "./types";
 
 // --- README.template.md ---
 const README_PATH = process.argv[2] || path.join(process.cwd(), "README.md");
 const TEMPLATE_PATH = path.join(process.cwd(), "README.template.md");
 
+// --- Manual Env Load (for glitchy environments) ---
+if (!process.env.GH_TOKEN) {
+  try {
+    const envContent = readFileSync(path.join(process.cwd(), ".env"), "utf-8");
+    const lines = envContent.split("\n");
+    for (const line of lines) {
+      if (line.startsWith("GH_TOKEN=")) {
+        process.env.GH_TOKEN = line.split("=")[1]?.trim();
+        break;
+      }
+    }
+  } catch (e) {
+    /* Silent fail */
+  }
+}
+
 async function main() {
-  // --- Add console log ---
-  console.log("[ ▱_▱ ] Starting data fetching, wait a moment...");
+  console.info("[ ▱_▱ ] Starting data fetching, wait a moment...");
 
   // --- Read Template ---
   const template = readFileSync(TEMPLATE_PATH, "utf-8");
@@ -60,8 +78,8 @@ async function main() {
   // --- Build Readme ---
   const finalReadme = buildReadme(template, statsOutput, commitOutput);
 
-writeFileSync(README_PATH, finalReadme);
-  console.log("[ ▰_▰ ] Done, README.md generated with Headless Architecture!");
+  writeFileSync(README_PATH, finalReadme);
+  console.info("[ ▰_▰ ] Done, README.md generated with Clean Architecture!");
 
   // JSON for Portfolio
   const jsonOutput = process.argv[3];
@@ -81,7 +99,7 @@ writeFileSync(README_PATH, finalReadme);
         })) || [],
     };
     writeFileSync(jsonOutput, JSON.stringify(portfolioData, null, 2));
-    console.log(`[ ⌐■_■] Done, data JSON exported to: ${jsonOutput}`);
+    console.info(`[ ⌐■_■] Data exported to: ${jsonOutput}`);
   }
 }
 
