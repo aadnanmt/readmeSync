@@ -45,4 +45,5 @@ jobs:
           git config --local user.name "Adnan Slamet Wibowo"
           git add stats.json
           git commit -m "data: update stats.json for portfolio [skip ci]" || exit 0
+          git pull --rebase origin HEAD
           git push origin HEAD
