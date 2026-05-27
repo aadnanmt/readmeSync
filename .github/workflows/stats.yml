@@ -37,7 +37,7 @@ jobs:
           git config --local user.name "Adnan Slamet Wibowo"
           git add README.md
           git commit -m "docs: sync automated README.md [skip ci]" || exit 0
-          git push origin main
+          git push origin HEAD
 
       - name: push stats to this repo
         run: |
@@ -45,4 +45,4 @@ jobs:
           git config --local user.name "Adnan Slamet Wibowo"
           git add stats.json
           git commit -m "data: update stats.json for portfolio [skip ci]" || exit 0
-          git push origin main
+          git push origin HEAD
