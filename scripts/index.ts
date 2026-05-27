@@ -14,7 +14,7 @@ import { GITHUB_QUERY } from "./lib/query";
 async function main() {
   console.info("[▱_▱] Starting sync...");
 
-  // --- Fetch data from github query ---
+  // 1. Fetch & Validate
   const data = await fetchData(GITHUB_QUERY);
   if (!data?.viewer) throw new Error("GitHub API Error");
   const user = data.viewer;
@@ -27,35 +27,29 @@ async function main() {
     `Total: ${user.contributionsCollection.contributionCalendar.totalContributions.toLocaleString()} commits`,
   ]);
 
-  // --- Build Readme ---
-  const finalReadme = buildReadme(template, statsOutput, commitOutput);
+  // 3. Output README
+  const template = readFileSync(
+    path.join(process.cwd(), "README.template.md"),
+    "utf-8",
+  );
+  writeFileSync(
+    path.join(process.cwd(), "README.md"),
+    buildReadme(template, stats, commit),
+  );
 
-writeFileSync(README_PATH, finalReadme);
-  console.log("[ ▰_▰ ] Done, README.md generated with Headless Architecture!");
-
-  // JSON for Portfolio
-  const jsonOutput = process.argv[3];
-  if (jsonOutput) {
-    const portfolioData = {
-      languages: sortedLangs.map(([name, size]) => ({
-        name,
-        percentage: ((size / totalSize) * 100).toFixed(1),
-      })),
-      totalCommits: totalContributions,
+  // 4. Output JSON (optional)
+  const jsonPath = process.argv[3];
+  if (jsonPath) {
+    const json = {
       updatedAt: new Date().toISOString(),
-      dailyContributions: calendar?.weeks
-        ?.flatMap((week) => week.contributionDays || [])
-        .map((day) => ({
-          date: day.date,
-          count: day.contributionCount,
-        })) || [],
+      totalCommits:
+        user.contributionsCollection.contributionCalendar.totalContributions,
     };
-    writeFileSync(jsonOutput, JSON.stringify(portfolioData, null, 2));
-    console.log(`[ ⌐■_■] Done, data JSON exported to: ${jsonOutput}`);
+    writeFileSync(jsonPath, JSON.stringify(json, null, 2));
   }
 
   console.info("[▰_▰] System Synced");
-  console.info("[⌐■_■] Check your README.md and stats.json")
+  console.info("[⌐■_■] Check your README.md and stats.json");
 }
 
 main().catch(console.error);
