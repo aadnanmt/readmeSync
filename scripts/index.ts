@@ -28,14 +28,12 @@ async function main() {
   ]);
 
   // 3. Output README
+  const outputPath = process.argv[2] || path.join(process.cwd(), "README.md");
   const template = readFileSync(
     path.join(process.cwd(), "README.template.md"),
     "utf-8",
   );
-  writeFileSync(
-    path.join(process.cwd(), "README.md"),
-    buildReadme(template, stats, commit),
-  );
+  writeFileSync(outputPath, buildReadme(template, stats, commit));
 
   // 4. Output JSON (optional)
   const jsonPath = process.argv[3];
