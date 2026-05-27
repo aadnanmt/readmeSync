@@ -24,7 +24,7 @@ async function main() {
   const commit = renderSection("commit", [
     ...formatCommits(user),
     "",
-    `Total: ${user.contributionsCollection.contributionCalendar.totalContributions.toLocaleString()} commits`,
+    `Total: ${user.contributionsCollection.contributionCalendar.totalContributions.toLocaleString()} commits in last year`,
   ]);
 
   // 3. Output README
