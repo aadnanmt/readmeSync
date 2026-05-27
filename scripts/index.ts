@@ -10,6 +10,7 @@ import {
   formatCommits,
 } from "./lib/render";
 import { GITHUB_QUERY } from "./lib/query";
+import { parseLanguage } from "./lib/parser";
 
 async function main() {
   console.info("[▱_▱] Starting sync...");
@@ -20,6 +21,9 @@ async function main() {
   const user = data.viewer;
 
   // 2. Format & Assembly
+  const languageData = parseLanguage(user);
+  const totalSize = languageData.reduce((acc, [, size]) => acc + size, 0);
+
   const stats = renderSection("languages", formatLanguages(user));
   const commit = renderSection("commit", [
     ...formatCommits(user),
@@ -42,6 +46,10 @@ async function main() {
       updatedAt: new Date().toISOString(),
       totalCommits:
         user.contributionsCollection.contributionCalendar.totalContributions,
+      languages: languageData.map(([name, size]) => ({
+        name,
+        percentage: ((size / totalSize) * 100).toFixed(1),
+      })),
     };
     writeFileSync(jsonPath, JSON.stringify(json, null, 2));
   }
