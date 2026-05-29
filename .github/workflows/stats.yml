@@ -1,8 +1,9 @@
 name: Remote readmeSync
 on:
   schedule:
-    - cron: "0 5,17 * * *"
+    - cron: "17 5,17 * * *"
   workflow_dispatch:
+
 
 jobs:
   deploy:
@@ -37,6 +38,7 @@ jobs:
           git config --local user.name "Adnan Slamet Wibowo"
           git add README.md
           git commit -m "docs: sync automated README.md [skip ci]" || exit 0
+          git pull --rebase origin HEAD
           git push origin HEAD
 
       - name: push stats to this repo
