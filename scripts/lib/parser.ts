@@ -1,27 +1,27 @@
-import { GitHubUser, ContributionWeek } from "../types";
+import { GitHubUser, ContributionWeek } from "../types"
 
 export function parseLanguage(data: GitHubUser) {
-  const langMap: Record<string, number> = {};
-  const ALLOWED_OWNER = ["aadnanmt", "nanoolabs"];
+  const langMap: Record<string, number> = {}
+  const ALLOWED_OWNER = ["aadnanmt", "nanoolabs"]
 
   data.repositories.nodes.forEach((repo) => {
     if (repo && repo.owner && repo.owner.login) {
       if (ALLOWED_OWNER.includes(repo.owner.login.toLowerCase())) {
         repo.languages.edges.forEach((edge) => {
-          langMap[edge.node.name] = (langMap[edge.node.name] || 0) + edge.size;
-        });
+          langMap[edge.node.name] = (langMap[edge.node.name] || 0) + edge.size
+        })
       }
     }
-  });
+  })
 
   return Object.entries(langMap)
     .sort(([, a], [, b]) => b - a)
-    .slice(0, 8);
+    .slice(0, 8)
 }
 
 export function parseCommit(data: GitHubUser) {
-  const calendar = data.contributionsCollection.contributionCalendar;
+  const calendar = data.contributionsCollection.contributionCalendar
   return calendar.weeks
     .flatMap((w: ContributionWeek) => w.contributionDays)
-    .slice(-7);
+    .slice(-7)
 }

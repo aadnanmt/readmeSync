@@ -1,11 +1,11 @@
-import { GitHubGqlResponse } from "../types";
+import { GitHubGqlResponse } from "../types"
 
 export async function fetchData(query: string): Promise<GitHubGqlResponse> {
-  const token = process.env.GH_TOKEN;
+  const token = process.env.GH_TOKEN
   if (!token)
     throw new Error(
-      "[ ✖_✖ ] Damn, GH_TOKEN is missing. Check again your value GH_TOKEN on your .env",
-    );
+      "[ ✖_✖ ] Damn, GH_TOKEN is missing. Check again your value GH_TOKEN on your .env"
+    )
 
   const response = await fetch("https://api.github.com/graphql", {
     method: "POST",
@@ -14,12 +14,12 @@ export async function fetchData(query: string): Promise<GitHubGqlResponse> {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query }),
-  });
+  })
 
-  const result = await response.json();
+  const result = await response.json()
   if (result.errors) {
-    console.error(result.errors);
-    throw new Error("[ ✖_✖ ] Graphql error!");
+    console.error(result.errors)
+    throw new Error("[ ✖_✖ ] Graphql error!")
   }
-  return result.data;
+  return result.data
 }

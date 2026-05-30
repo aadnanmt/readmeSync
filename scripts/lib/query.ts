@@ -34,4 +34,4 @@ export const GITHUB_QUERY = `
       }
     }
   }
-`;
+`
