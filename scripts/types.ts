@@ -17,6 +17,10 @@ export interface Languages {
 
 // Repository types
 export interface RepositoryNode {
+  diskUsage: number
+  licenseInfo: {
+    spdxId: string
+  } | null
   owner: {
     login: string
   }
