@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-06-14T08:50:54.914Z",
-  "totalCommits": 2433,
+  "updatedAt": "2026-06-14T18:44:43.554Z",
+  "totalCommits": 2436,
   "languages": [
     {
       "name": "JavaScript",
-      "percentage": "23.7"
+      "percentage": "23.1"
     },
     {
       "name": "CSS",
-      "percentage": "20.9"
+      "percentage": "21.1"
     },
     {
       "name": "Astro",
-      "percentage": "19.6"
+      "percentage": "19.7"
     },
     {
       "name": "HTML",
@@ -20,15 +20,15 @@
     },
     {
       "name": "TypeScript",
-      "percentage": "7.8"
+      "percentage": "7.9"
     },
     {
       "name": "Shell",
-      "percentage": "6.6"
+      "percentage": "6.7"
     },
     {
       "name": "Stylus",
-      "percentage": "6.2"
+      "percentage": "6.3"
     },
     {
       "name": "SCSS",
