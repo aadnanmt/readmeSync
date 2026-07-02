@@ -8,8 +8,7 @@
     "setup": "cp .env.example .env || copy .env.example .env"
   },
   "dependencies": {
-    "@types/node": "^25.5.2",
-    "dotenv": "^17.4.2"
+    "@types/node": "^25.5.2"
   },
   "devDependencies": {
     "prettier": "^3.8.3",
