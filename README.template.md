@@ -2,7 +2,7 @@
 
 ## 18yo dev & tech minimalist
 
-> Building high-performance edge ecosystems at `[nanoolabs](https://github.com/nanoolabs)`.
+> Building high-performance edge ecosystems at [nanoolabs](https://github.com/nanoolabs).
 
 - **Frontend** `TS/JS (Astro)` `HTML` `CSS (Tailwind)`
 - **Backend** `TS (Hono)` `Python (FastAPI)`
