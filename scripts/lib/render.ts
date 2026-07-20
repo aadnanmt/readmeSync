@@ -2,9 +2,6 @@
 
 import { parseLanguage, parseCommit } from "./parser"
 
-/**
- * Create style progress bar
- */
 export function makeBar(count: number, max: number, width: number): string {
   const filledLength = Math.round((count / max) * width)
   const filled = "█".repeat(Math.max(0, filledLength))
@@ -12,9 +9,6 @@ export function makeBar(count: number, max: number, width: number): string {
   return `[${filled}${empty}]`
 }
 
-/**
- * Format output to structure cli section
- */
 export function renderSection(title: string, lines: string[]): string {
   return [
     `$ aadnanmt-stats --${title.toLowerCase().replace(/\s+/g, "-")}`,
@@ -24,9 +18,6 @@ export function renderSection(title: string, lines: string[]): string {
   ].join("\n")
 }
 
-/**
- * Convert raw programming language data to format text lines
- */
 export function formatLanguages(user: any): string[] {
   const sortedLangs = parseLanguage(user)
   const totalSize = sortedLangs.reduce((acc, [, size]) => acc + size, 0)
@@ -38,9 +29,6 @@ export function formatLanguages(user: any): string[] {
   })
 }
 
-/**
- * Convert raw commit data to format text lines
- */
 export function formatCommits(user: any): string[] {
   const commitData = parseCommit(user)
   const maxCommits = Math.max(
@@ -57,9 +45,6 @@ export function formatCommits(user: any): string[] {
   })
 }
 
-/**
- * Build the final README by injecting data to the template
- */
 export function buildReadme(
   template: string,
   statsOutput: string,
