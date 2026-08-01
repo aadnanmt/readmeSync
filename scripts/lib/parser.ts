@@ -1,6 +1,7 @@
 import { GitHubUser, ContributionWeek } from "../types"
 
 const ALLOWED_OWNER = ["aadnanmt", "nanoolabs"]
+const EXCLUDED_LANGUAGES = ["EJS", "Stylus", "Python"]
 
 function isOwnRepo(repo: { owner?: { login?: string } | null } | null) {
   return (
@@ -19,6 +20,7 @@ export function parseLanguage(data: GitHubUser) {
   })
 
   return Object.entries(langMap)
+    .filter(([name]) => !EXCLUDED_LANGUAGES.includes(name))
     .sort(([, a], [, b]) => b - a)
     .slice(0, 8)
 }
