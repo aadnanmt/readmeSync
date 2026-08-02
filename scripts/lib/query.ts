@@ -3,6 +3,9 @@ export const GITHUB_QUERY = `
   query {
     viewer {
       login
+      followers {
+        totalCount
+      }
       repositories(first: 100, ownerAffiliations: [OWNER, ORGANIZATION_MEMBER], isFork: false) {
         nodes {
           diskUsage
