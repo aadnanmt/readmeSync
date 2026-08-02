@@ -9,7 +9,7 @@ import {
   formatCommits,
 } from "./lib/render"
 import { GITHUB_QUERY } from "./lib/query"
-import { parseLanguage, parseCodebaseStats } from "./lib/parser"
+import { parseLanguage, parseCodebaseStats, parseStreak } from "./lib/parser"
 
 async function main() {
   console.info("[▱_▱] Starting sync...")
@@ -35,6 +35,10 @@ async function main() {
   ])
 
   const statsSection = renderSection("languages", formatLanguages(user))
+  const profileSection = renderSection("profile", [
+    `FOLLOWERS: ${user.followers.totalCount}`,
+    `STREAK: ${parseStreak(user)} days`,
+  ])
   const commitSection = renderSection("commit", [
     ...formatCommits(user),
     "",
@@ -51,7 +55,7 @@ async function main() {
     outputPath,
     buildReadme(
       template,
-      `${codebaseSection}\n\n${statsSection}`,
+      `${profileSection}\n\n${codebaseSection}\n\n${statsSection}`,
       commitSection
     )
   )
@@ -63,6 +67,8 @@ async function main() {
       updatedAt: new Date().toISOString(),
       totalCommits:
         user.contributionsCollection.contributionCalendar.totalContributions,
+      totalFollowers: user.followers.totalCount,
+      streak: parseStreak(user),
       ...codebaseMetrics,
       languages: languageData.map(([name, size]) => ({
         name,

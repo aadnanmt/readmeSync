@@ -52,3 +52,17 @@ export function parseCodebaseStats(data: GitHubUser) {
 
   return { repoCount, totalDiskUsage, mainLicense }
 }
+
+export function parseStreak(data: GitHubUser) {
+  const days = data.contributionsCollection.contributionCalendar.weeks.flatMap(
+    (w: ContributionWeek) => w.contributionDays
+  )
+  let i = days.length - 1
+  if (days[i]?.contributionCount === 0) i--
+  let streak = 0
+  for (; i >= 0; i--) {
+    if (days[i].contributionCount > 0) streak++
+    else break
+  }
+  return streak
+}
