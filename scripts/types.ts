@@ -52,6 +52,9 @@ export interface ContributionsCollection {
 
 // User (or Viewer) type
 export interface GitHubUser {
+  followers: {
+    totalCount: number
+  }
   repositories: Repositories
   contributionsCollection: ContributionsCollection
 }
