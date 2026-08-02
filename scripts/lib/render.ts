@@ -23,7 +23,7 @@ export function formatLanguages(user: any): string[] {
   const totalSize = sortedLangs.reduce((acc, [, size]) => acc + size, 0)
 
   return sortedLangs.map(([name, size]) => {
-    const bar = makeBar(size, totalSize, 15)
+    const bar = makeBar(size, totalSize, 20)
     const percentage = ((size / totalSize) * 100).toFixed(1)
     return `${name.padEnd(10)} ${bar} ${percentage}%`
   })
@@ -40,7 +40,7 @@ export function formatCommits(user: any): string[] {
     const dayName = new Intl.DateTimeFormat("en-US", {
       weekday: "short",
     }).format(new Date(day.date))
-    const bar = makeBar(day.contributionCount, maxCommits, 10)
+    const bar = makeBar(day.contributionCount, maxCommits, 15)
     return `${dayName.padEnd(5)} ${bar} ${day.contributionCount} commits`
   })
 }
