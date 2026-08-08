@@ -27,13 +27,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - name: format code
-        run: bun run format:readme
-
       - name: push to public repo
         working-directory: ./public-repo
         run: |
-          git config --local user.email "contact@aadnanmt.web.id"
+          git config --local user.email "adnan@nanoolabs.dev"
           git config --local user.name "Adnan Slamet Wibowo"
           git add README.md
           git commit -m "docs: sync automated README.md [skip ci]" || exit 0
@@ -42,7 +39,7 @@ jobs:
 
       - name: push stats to this repo
         run: |
-          git config --local user.email "contact@aadnanmt.web.id"
+          git config --local user.email "adnan@nanoolabs.dev"
           git config --local user.name "Adnan Slamet Wibowo"
           git add stats.json
           git commit -m "data: update stats.json for portfolio [skip ci]" || exit 0

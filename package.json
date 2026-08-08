@@ -3,8 +3,8 @@
   "type": "module",
   "scripts": {
     "start": "bun scripts/index.ts",
+    "run": "bun scripts/index.ts ./README.md ./stats.json",
     "format": "prettier . --write",
-    "format:readme": "prettier --write ./public-repo/README.md",
     "setup": "cp .env.example .env || copy .env.example .env"
   },
   "dependencies": {
