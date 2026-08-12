@@ -1,7 +1,20 @@
-import { GitHubUser, ContributionWeek } from "../types"
+import { GitHubUser, ContributionWeek } from '../types'
 
-const ALLOWED_OWNER = ["aadnanmt", "nanoolabs"]
-const EXCLUDED_LANGUAGES = ["EJS", "Stylus", "Python"]
+const ALLOWED_OWNER = ['aadnanmt', 'nanoolabs']
+const EXCLUDED_LANGUAGES = [
+  'EJS',
+  'Stylus',
+  'Python',
+  'Lua',
+  'GLSL',
+  'Go',
+  'JSON',
+  'MDX',
+  'YAML',
+  'Nix',
+  'Rich Text Format',
+  'Procfile',
+]
 
 function isOwnRepo(repo: { owner?: { login?: string } | null } | null) {
   return (
@@ -48,7 +61,7 @@ export function parseCodebaseStats(data: GitHubUser) {
 
   const mainLicense =
     Object.entries(licenseMap).sort(([, a], [, b]) => b - a)[0]?.[0] ||
-    "No License"
+    'No License'
 
   return { repoCount, totalDiskUsage, mainLicense }
 }

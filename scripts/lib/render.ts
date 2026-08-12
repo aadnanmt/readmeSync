@@ -1,21 +1,21 @@
 // scripts/lib/render.ts
 
-import { parseLanguage, parseCommit } from "./parser"
+import { parseLanguage, parseCommit } from './parser'
 
 export function makeBar(count: number, max: number, width: number): string {
   const filledLength = Math.round((count / max) * width)
-  const filled = "█".repeat(Math.max(0, filledLength))
-  const empty = "░".repeat(Math.max(0, width - filledLength))
+  const filled = '█'.repeat(Math.max(0, filledLength))
+  const empty = '░'.repeat(Math.max(0, width - filledLength))
   return `[${filled}${empty}]`
 }
 
 export function renderSection(title: string, lines: string[]): string {
   return [
-    `$ aadnanmt-stats --${title.toLowerCase().replace(/\s+/g, "-")}`,
-    "----------------------------------",
+    `$ aadnanmt-stats --${title.toLowerCase().replace(/\s+/g, '-')}`,
+    '----------------------------------',
     ...lines,
-    "----------------------------------",
-  ].join("\n")
+    '----------------------------------',
+  ].join('\n')
 }
 
 export function formatLanguages(user: any): string[] {
@@ -37,8 +37,8 @@ export function formatCommits(user: any): string[] {
   )
 
   return commitData.map((day: any) => {
-    const dayName = new Intl.DateTimeFormat("en-US", {
-      weekday: "short",
+    const dayName = new Intl.DateTimeFormat('en-US', {
+      weekday: 'short',
     }).format(new Date(day.date))
     const bar = makeBar(day.contributionCount, maxCommits, 15)
     return `${dayName.padEnd(5)} ${bar} ${day.contributionCount} commits`
@@ -51,6 +51,6 @@ export function buildReadme(
   commitOutput: string
 ): string {
   return template
-    .replace("{{languages}}", statsOutput)
-    .replace("{{commit}}", commitOutput)
+    .replace('{{languages}}', statsOutput)
+    .replace('{{commit}}', commitOutput)
 }
