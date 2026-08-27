@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-08-26T19:18:46.874Z",
-  "totalCommits": 2908,
+  "updatedAt": "2026-08-27T11:58:47.540Z",
+  "totalCommits": 2915,
   "totalFollowers": 88,
-  "streak": 144,
+  "streak": 145,
   "repoCount": 42,
-  "totalDiskUsage": 193431,
+  "totalDiskUsage": 193901,
   "mainLicense": "MIT",
   "languages": [
     {
       "name": "JavaScript",
-      "percentage": "35.1"
+      "percentage": "35.0"
     },
     {
       "name": "CSS",
-      "percentage": "23.9"
+      "percentage": "23.8"
     },
     {
       "name": "Shell",
-      "percentage": "13.9"
+      "percentage": "13.8"
     },
     {
       "name": "SCSS",
@@ -25,7 +25,7 @@
     },
     {
       "name": "Astro",
-      "percentage": "7.1"
+      "percentage": "7.3"
     },
     {
       "name": "HTML",
