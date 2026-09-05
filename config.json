@@ -1,0 +1,18 @@
+{
+  "allowedOwner": ["aadnanmt", "nanoolabs"],
+  "excludedLanguages": [
+    "EJS",
+    "Stylus",
+    "Python",
+    "Lua",
+    "GLSL",
+    "Go",
+    "JSON",
+    "MDX",
+    "YAML",
+    "Nix",
+    "Rich Text Format",
+    "Procfile"
+  ],
+  "topLanguagesCount": 8
+}

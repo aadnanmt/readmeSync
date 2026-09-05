@@ -1,25 +1,12 @@
 import { ContributionWeek, GitHubUser } from '../types.ts'
+import config from '../../config.json' with { type: 'json' }
 
-const ALLOWED_OWNER = ['aadnanmt', 'nanoolabs']
-const EXCLUDED_LANGUAGES = [
-  'EJS',
-  'Stylus',
-  'Python',
-  'Lua',
-  'GLSL',
-  'Go',
-  'JSON',
-  'MDX',
-  'YAML',
-  'Nix',
-  'Rich Text Format',
-  'Procfile',
-]
+const { allowedOwner, excludedLanguages, topLanguagesCount } = config
 
 function isOwnRepo(repo: { owner?: { login?: string } | null } | null) {
   return (
     !!repo?.owner?.login &&
-    ALLOWED_OWNER.includes(repo.owner.login.toLowerCase())
+    allowedOwner.includes(repo.owner.login.toLowerCase())
   )
 }
 
@@ -33,9 +20,9 @@ export function parseLanguage(data: GitHubUser) {
   })
 
   return Object.entries(langMap)
-    .filter(([name]) => !EXCLUDED_LANGUAGES.includes(name))
+    .filter(([name]) => !excludedLanguages.includes(name))
     .sort(([, a], [, b]) => b - a)
-    .slice(0, 8)
+    .slice(0, topLanguagesCount)
 }
 
 export function parseCommit(data: GitHubUser) {
