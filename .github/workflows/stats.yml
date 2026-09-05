@@ -18,12 +18,14 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
           path: public-repo
 
-      - uses: oven-sh/setup-bun@v1
+      - uses: denoland/setup-deno@v2
+
+      - name: cache deps
+        run: deno install
 
       - name: install & generate
         run: |
-          bun i
-          bun run scripts/index.ts ./public-repo/README.md ./stats.json
+          deno run -A scripts/index.ts ./public-repo/README.md ./stats.json
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
