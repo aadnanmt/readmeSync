@@ -1,4 +1,4 @@
-import { GitHubUser, ContributionWeek } from '../types'
+import { ContributionWeek, GitHubUser } from '../types.ts'
 
 const ALLOWED_OWNER = ['aadnanmt', 'nanoolabs']
 const EXCLUDED_LANGUAGES = [
@@ -68,7 +68,7 @@ export function parseCodebaseStats(data: GitHubUser) {
 
 export function parseStreak(data: GitHubUser) {
   const days = data.contributionsCollection.contributionCalendar.weeks.flatMap(
-    (w: ContributionWeek) => w.contributionDays
+    (w: ContributionWeek) => w.contributionDays,
   )
   let i = days.length - 1
   if (days[i]?.contributionCount === 0) i--

@@ -1,6 +1,6 @@
 // scripts/lib/render.ts
 
-import { parseLanguage, parseCommit } from './parser'
+import { parseCommit, parseLanguage } from './parser.ts'
 
 export function makeBar(count: number, max: number, width: number): string {
   const filledLength = Math.round((count / max) * width)
@@ -33,7 +33,7 @@ export function formatCommits(user: any): string[] {
   const commitData = parseCommit(user)
   const maxCommits = Math.max(
     ...commitData.map((d: any) => d.contributionCount),
-    1
+    1,
   )
 
   return commitData.map((day: any) => {
@@ -48,7 +48,7 @@ export function formatCommits(user: any): string[] {
 export function buildReadme(
   template: string,
   statsOutput: string,
-  commitOutput: string
+  commitOutput: string,
 ): string {
   return template
     .replace('{{languages}}', statsOutput)

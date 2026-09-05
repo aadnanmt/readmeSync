@@ -1,15 +1,16 @@
 // scripts/index.ts
+import 'jsr:@std/dotenv@0.225/load'
 import { readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
-import { fetchData } from './lib/github'
+import { fetchData } from './lib/github.ts'
 import {
-  renderSection,
   buildReadme,
-  formatLanguages,
   formatCommits,
-} from './lib/render'
-import { GITHUB_QUERY } from './lib/query'
-import { parseLanguage, parseCodebaseStats, parseStreak } from './lib/parser'
+  formatLanguages,
+  renderSection,
+} from './lib/render.ts'
+import { GITHUB_QUERY } from './lib/query.ts'
+import { parseCodebaseStats, parseLanguage, parseStreak } from './lib/parser.ts'
 
 async function main() {
   console.info('[▱_▱] Starting sync...')
@@ -25,8 +26,9 @@ async function main() {
 
   const codebaseMetrics = parseCodebaseStats(user)
   const mb = codebaseMetrics.totalDiskUsage / 1024
-  const storageStr =
-    mb > 1024 ? `${(mb / 1024).toFixed(2)} GB` : `${mb.toFixed(2)} MB`
+  const storageStr = mb > 1024
+    ? `${(mb / 1024).toFixed(2)} GB`
+    : `${mb.toFixed(2)} MB`
 
   const codebaseSection = renderSection('codebase', [
     `REPOS: ${codebaseMetrics.repoCount} (include private repo personal & org)`,
@@ -49,15 +51,15 @@ async function main() {
   const outputPath = process.argv[2] || path.join(process.cwd(), 'README.md')
   const template = readFileSync(
     path.join(process.cwd(), 'README.template.md'),
-    'utf-8'
+    'utf-8',
   )
   writeFileSync(
     outputPath,
     buildReadme(
       template,
       `${profileSection}\n\n${codebaseSection}\n\n${statsSection}`,
-      commitSection
-    )
+      commitSection,
+    ),
   )
 
   // 4. Output JSON (optional)

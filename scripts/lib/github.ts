@@ -1,11 +1,12 @@
-import { GitHubGqlResponse } from '../types'
+import { GitHubGqlResponse } from '../types.ts'
 
 export async function fetchData(query: string): Promise<GitHubGqlResponse> {
   const token = process.env.GH_TOKEN
-  if (!token)
+  if (!token) {
     throw new Error(
-      '[ ✖_✖ ] Damn, GH_TOKEN is missing. Check again your value GH_TOKEN on your .env'
+      '[ ✖_✖ ] Damn, GH_TOKEN is missing. Check again your value GH_TOKEN on your .env',
     )
+  }
 
   const response = await fetch('https://api.github.com/graphql', {
     method: 'POST',
