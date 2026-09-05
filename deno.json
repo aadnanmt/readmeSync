@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "@std/dotenv": "jsr:@std/dotenv@0.225"
+  },
+  "tasks": {
+    "start": "deno run -A scripts/index.ts",
+    "run": "deno run -A scripts/index.ts ./README.md ./stats.json",
+    "format": "deno fmt",
+    "setup": "cp .env.example .env || copy .env.example .env"
+  },
+  "fmt": {
+    "semiColons": false,
+    "lineWidth": 80,
+    "indentWidth": 2,
+    "singleQuote": true
+  }
+}
