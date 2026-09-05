@@ -1,6 +1,7 @@
 # 18 y/o dev & tech minimalist [⌐■_■]
 
-> Building high-performance edge ecosystems at [`nanoolabs`](https://github.com/nanoolabs).
+> Building high-performance edge ecosystems at
+> [`nanoolabs`](https://github.com/nanoolabs).
 
 - **Frontend** `TS/JS (Astro)` `HTML` `CSS (Tailwind)`
 - **Backend** `TS (Hono)` `Python (FastAPI)`
@@ -18,10 +19,12 @@
 
 Principles: Performance, zero-bloat, and scalable architecture.
 
-[Digital Garden](https://me.nanoolabs.dev) / [Laboratory](https://github.com/nanoolabs) / [Nanoo Labs](https://nanoolabs.dev)
+[Digital Garden](https://me.nanoolabs.dev) /
+[Laboratory](https://github.com/nanoolabs) / [Nanoo Labs](https://nanoolabs.dev)
 
 ### Connect with me [ ▰_▰ ]
 
-[Twitter](https://x.com/aadnanmt) / [Instagram](https://instagram.com/aadnanmt) / [Telegram](https://t.me/adnanbuilds) / [Email](mailto:adnan@nanoolabs.dev)
+[Twitter](https://x.com/aadnanmt) / [Instagram](https://instagram.com/aadnanmt)
+/ [Telegram](https://t.me/adnanbuilds) / [Email](mailto:adnan@nanoolabs.dev)
 
 <p align="right"><small>Auto-sync 12h via Bun/TypeScript. No commit farming. Check this repository: <a href="https://github.com/aadnanmt/readmeSync">readmeSync</a></small></p>
